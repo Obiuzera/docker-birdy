@@ -1,4 +1,11 @@
-FROM so77id/tensorflow-opencv-gpu-py3
+FROM tensorflow/tensorflow:1.3.0-gpu-py3
+
+RUN apt-get update && apt-get install -y \
+    python-opencv \
+    libblas-common \
+    python-qt4 \
+    libopencv-dev \
+    python-tk
 
 RUN pip install numpy scipy==0.19.1 theano==0.9.0 scikit-learn==0.19.1
 RUN pip install matplotlib==2.1.0
