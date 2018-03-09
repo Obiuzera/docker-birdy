@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y \
     libblas-common \
     python-qt4 \
     libopencv-dev \
-    python-tk
+    python3-tk
 
 RUN pip install numpy scipy==0.19.1 theano==0.9.0 scikit-learn==0.19.1
 RUN pip install matplotlib==2.1.0
