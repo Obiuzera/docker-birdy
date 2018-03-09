@@ -19,4 +19,3 @@ RUN pip install munkres==1.0.7
 RUN pip install opencv-python
 RUN pip install python_speech_features
 RUN pip install xmltodict
-
