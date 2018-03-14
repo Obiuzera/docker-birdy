@@ -7,7 +7,11 @@ RUN apt-get update && apt-get install -y \
     libopencv-dev \
     python3-tk
 
-RUN pip install numpy scipy==0.19.1 theano==0.9.0 scikit-learn==0.19.1
+RUN conda install numpy scipy mkl
+RUN conda install -c mila-udem pygpu
+RUN pip install https://github.com/Theano/Theano.git#egg=Theano
+
+RUN pip install numpy scipy==0.19.1 scikit-learn==0.19.1 
 RUN pip install matplotlib==2.1.0
 RUN pip install keras==2.0.6
 RUN pip install librosa==0.5.1
