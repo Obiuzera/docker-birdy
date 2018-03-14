@@ -1,15 +1,16 @@
 FROM tensorflow/tensorflow:1.3.0-gpu-py3
 
+ADD THEANO_DIR="theano_build"
+
 RUN apt-get update && apt-get install -y \
     python-opencv \
     libblas-common \
     python-qt4 \
     libopencv-dev \
-    python3-tk
-
-RUN conda install numpy scipy mkl
-RUN conda install -c mila-udem pygpu
-RUN pip install https://github.com/Theano/Theano.git#egg=Theano
+    python3-tk \
+    git \
+    build-essential \
+    cmake
 
 RUN pip install numpy scipy==0.19.1 scikit-learn==0.19.1 
 RUN pip install matplotlib==2.1.0
@@ -22,3 +23,17 @@ RUN pip install munkres==1.0.7
 RUN pip install opencv-python
 RUN pip install python_speech_features
 RUN pip install xmltodict
+
+RUN git clone https://github.com/Theano/libgpuarray.git && \
+	mkdir -p libgpuarray/Build && \
+	cd libgpuarray/Build && \
+	cmake .. -DCMAKE_BUILD_TYPE=Release && \
+	make && \
+	make install && \
+	cd .. ; \
+	ldconfig ; \
+	python setup.py build && \
+	python setup.py install
+
+RUN pip install git+https://github.com/Theano/Theano.git#egg=Theano
+
