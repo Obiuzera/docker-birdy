@@ -1,7 +1,5 @@
 FROM tensorflow/tensorflow:1.3.0-gpu-py3
 
-ADD THEANO_DIR="theano_build"
-
 RUN apt-get update && apt-get install -y \
     python-opencv \
     libblas-common \
@@ -30,8 +28,8 @@ RUN git clone https://github.com/Theano/libgpuarray.git && \
 	cmake .. -DCMAKE_BUILD_TYPE=Release && \
 	make && \
 	make install && \
-	cd .. ; \
-	ldconfig ; \
+	cd .. && \
+	ldconfig && \
 	python setup.py build && \
 	python setup.py install
 
