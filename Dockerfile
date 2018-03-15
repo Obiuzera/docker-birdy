@@ -2,13 +2,14 @@ FROM tensorflow/tensorflow:1.4.1-gpu-py3
 
 RUN apt-get update && apt-get install -y \
 	    python-opencv \
-	    libblas-common \
+	    libopenblas-dev \
 	    python-qt4 \
 	    libopencv-dev \
 	    python3-tk \
 	    git \
 	    build-essential \
 	    cmake && \
+    update-alternatives --set libblas.so.3 /usr/lib/openblas-base/libblas.so.3 && \
     apt-get clean && apt-get autoremove
 
 RUN pip install Cython
