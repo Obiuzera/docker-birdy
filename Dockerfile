@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     cmake
 
+RUN pip install cython
+RUN pip install Mako
 RUN pip install numpy scipy==0.19.1 scikit-learn==0.19.1 
 RUN pip install matplotlib==2.1.0
 RUN pip install keras==2.0.6
@@ -33,5 +35,5 @@ RUN git clone https://github.com/Theano/libgpuarray.git && \
 	python setup.py build && \
 	python setup.py install
 
-RUN pip install git+https://github.com/Theano/Theano.git#egg=Theano
+RUN pip install https://github.com/Theano/Theano/archive/master.zip#egg=Theano
 
