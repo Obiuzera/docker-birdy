@@ -1,14 +1,15 @@
 FROM tensorflow/tensorflow:1.4.1-gpu-py3
 
 RUN apt-get update && apt-get install -y \
-    python-opencv \
-    libblas-common \
-    python-qt4 \
-    libopencv-dev \
-    python3-tk \
-    git \
-    build-essential \
-    cmake
+	    python-opencv \
+	    libblas-common \
+	    python-qt4 \
+	    libopencv-dev \
+	    python3-tk \
+	    git \
+	    build-essential \
+	    cmake && \
+    apt-get clean && apt-get autoremove
 
 RUN pip install Cython
 RUN pip install Mako
