@@ -34,7 +34,8 @@ RUN git clone https://github.com/Theano/libgpuarray.git && \
 	cd .. && \
 	ldconfig && \
 	python3 setup.py build && \
-	python3 setup.py install
+	python3 setup.py install && \
+	cd .. && rm -rf libgpuarray
 
 RUN pip install --upgrade https://github.com/Theano/Theano/archive/master.zip#egg=Theano
 
