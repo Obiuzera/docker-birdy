@@ -36,3 +36,5 @@ RUN git clone https://github.com/Theano/libgpuarray.git && \
 	python3 setup.py install
 
 RUN pip install --upgrade https://github.com/Theano/Theano/archive/master.zip#egg=Theano
+
+RUN apt-get update && apt-get dist-upgrade -y && apt-get clean && apt-get autoremove
