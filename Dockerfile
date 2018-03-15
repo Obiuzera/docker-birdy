@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     cmake
 
-RUN pip install cython
+RUN pip install Cython
 RUN pip install Mako
 RUN pip install numpy scipy==0.19.1 scikit-learn==0.19.1 
 RUN pip install matplotlib==2.1.0
