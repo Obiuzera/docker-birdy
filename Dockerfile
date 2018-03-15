@@ -17,7 +17,7 @@ RUN pip install matplotlib==2.1.0
 RUN pip install keras==2.0.6
 RUN pip install librosa==0.5.1
 RUN pip install --upgrade https://github.com/Lasagne/Lasagne/archive/master.zip
-RUN pip install https://github.com/dnouri/nolearn/archive/master.zip#egg=nolearn
+RUN pip install --upgrade https://github.com/dnouri/nolearn/archive/master.zip#egg=nolearn
 RUN pip install pandas==0.20.3
 RUN pip install munkres==1.0.7
 RUN pip install opencv-python
@@ -32,8 +32,7 @@ RUN git clone https://github.com/Theano/libgpuarray.git && \
 	make install && \
 	cd .. && \
 	ldconfig && \
-	python setup.py build && \
-	python setup.py install
+	python3 setup.py build && \
+	python3 setup.py install
 
-RUN pip install https://github.com/Theano/Theano/archive/master.zip#egg=Theano
-
+RUN pip install --upgrade https://github.com/Theano/Theano/archive/master.zip#egg=Theano
