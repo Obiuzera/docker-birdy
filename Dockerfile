@@ -25,6 +25,9 @@ RUN pip install munkres==1.0.7
 RUN pip install opencv-python
 RUN pip install python_speech_features
 RUN pip install xmltodict
+RUN pip install Augmentor
+
+RUN pip install pudb
 
 RUN git clone https://github.com/Theano/libgpuarray.git && \
 	mkdir -p libgpuarray/Build && \
