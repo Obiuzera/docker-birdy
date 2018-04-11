@@ -26,6 +26,7 @@ RUN pip install opencv-python
 RUN pip install python_speech_features
 RUN pip install xmltodict
 RUN pip install Augmentor
+RUN pip install h5py
 
 RUN pip install pudb
 
